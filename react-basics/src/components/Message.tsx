@@ -1,9 +1,14 @@
-const Message = () => {
-    // const name = "Patrick"
-    const name = ""
+import { ReactNode } from "react"
+
+interface Props{
+  children: ReactNode
+}
+
+const Message = ({children}: Props) => {
   return (
-    name ? <h2>Hello {name}!</h2> : <h2>Hello World!</h2>
-    
+    <div className="alert alert-info" role="alert">
+      {children}
+    </div>   
   )
 }
 
