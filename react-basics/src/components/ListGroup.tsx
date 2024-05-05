@@ -2,11 +2,11 @@ import { useState } from "react"
 
 interface Props {
     items: string[],
-    heading: string
+    heading: string,
+    onSelectItem: (item:string) => void
 }
 
-
-const ListGroup = ({items, heading}: Props) => {
+const ListGroup = ({items, heading, onSelectItem}: Props) => {
     const [selectedIndex, setSelectedIndex] = useState(-1)
 
   return (
@@ -17,6 +17,7 @@ const ListGroup = ({items, heading}: Props) => {
         <ul className="list-group">
             {items.map((capital, index) => <li key={capital} className={selectedIndex === index ? "list-group-item active" : "list-group-item"} onClick={() => {
                 setSelectedIndex(index)
+                onSelectItem(capital)
             }
             }>{capital}</li>)}        
         </ul>
